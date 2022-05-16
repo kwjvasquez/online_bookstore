@@ -1,5 +1,12 @@
-require 'rails_helper'
+# frozen_string_literal: true
+
+require "rails_helper"
 
 RSpec.describe Author, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "validations" do
+    subject { Author.create attributes_for(:author) }
+
+    it { should validate_presence_of(:name) }
+    it { should validate_uniqueness_of(:name) }
+  end
 end
