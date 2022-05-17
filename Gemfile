@@ -34,4 +34,5 @@ end
 
 gem "factory_bot_rails"
 gem "faker", "~> 2.21"
+gem "kaminari"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]

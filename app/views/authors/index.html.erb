@@ -1,7 +1,9 @@
 <h1>Authors</h1>
 
-<% @authors.each do |author| %>
-  <div>
-    <%= author.name %>
-  </div>
-<% end %>
+<ul>
+  <%= render @authors %>
+</ul>
+
+<%= paginate @authors %>
+
+<%= link_to "Home", root_path %>
