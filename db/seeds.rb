@@ -9,3 +9,7 @@
 100.times do
   FactoryBot.create(:author)
 end
+
+(1..10).each do |number|
+  Category.create name: "Category #{number}"
+end
