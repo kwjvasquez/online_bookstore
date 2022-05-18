@@ -10,13 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_16_210456) do
+ActiveRecord::Schema.define(version: 2022_05_18_184449) do
 
   create_table "authors", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_authors_on_name", unique: true
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_categories_on_name", unique: true
   end
 
 end
