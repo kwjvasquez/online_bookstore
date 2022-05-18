@@ -13,3 +13,7 @@ end
 (1..10).each do |number|
   Category.create name: "Category #{number}"
 end
+
+200.times do
+  FactoryBot.create(:book)
+end
