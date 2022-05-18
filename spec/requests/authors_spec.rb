@@ -3,13 +3,10 @@
 require "rails_helper"
 
 RSpec.describe "Authors", type: :request do
-  let(:author) { create(:author) }
+  let!(:author) { create(:author) }
 
   describe "GET /index" do
-    before do
-      author
-      get authors_path
-    end
+    before { get authors_path }
 
     it "renders a successful response" do
       expect(response).to have_http_status(:success)
