@@ -7,5 +7,6 @@ class AuthorsController < ApplicationController
 
   def show
     @author = Author.find(params[:id])
+    @amount_of_books_published = @author.books.count
   end
 end
