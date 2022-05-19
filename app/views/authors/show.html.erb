@@ -1,6 +1,8 @@
 <h1><%= @author.name %></h1>
 
-<%= render @author_books %>
+<ul>
+  <%= render @author_books %>
+</ul>
 
 <%= paginate @author_books %>
 

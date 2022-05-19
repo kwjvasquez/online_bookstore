@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-100.times do
+50.times do
   FactoryBot.create(:author)
 end
 
@@ -14,6 +14,6 @@ end
   Category.create name: "Category #{number}"
 end
 
-200.times do
+2_000.times do
   FactoryBot.create(:book)
 end
