@@ -21,11 +21,11 @@ class Book < ApplicationRecord
   validates :number_of_pages, presence: true, numericality: { only_integer: true }
   validates :date_published, presence: true
 
-  before_create :set_default_data
+  before_validation :set_code
 
   private
 
-  def set_default_data
-    self.active ||= false
+  def set_code
+    self.code ||= SecureRandom.uuid
   end
 end
