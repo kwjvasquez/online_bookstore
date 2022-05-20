@@ -1,1 +1,23 @@
 <h1><%= @book.name %></h1>
+
+<dl>
+  <dt><strong>Code:</strong></dt>
+  <dd><%= @book.code %></dd>
+
+  <dt><strong>Description:</strong></dt>
+  <dd><%= @book.description %></dd>
+
+  <dt><strong>Price:</strong></dt>
+  <dd><%= "$#{@book.price}" %></dd>
+
+  <dt><strong>Number of pages:</strong></dt>
+  <dd><%= @book.number_of_pages %></dd>
+
+  <dt><strong>Date published:</strong></dt>
+  <dd><%= @book.date_published %></dd>
+
+  <dt><strong>Author:</strong></dt>
+  <dd><%= @book.author.name %></dd>
+</dl>
+
+<%= link_to "Back", books_path %>
