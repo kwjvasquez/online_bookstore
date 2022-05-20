@@ -17,3 +17,7 @@ end
 10.times do
   FactoryBot.create(:book)
 end
+
+5.times do
+  FactoryBot.create(:user)
+end
