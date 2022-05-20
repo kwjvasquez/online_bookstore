@@ -21,3 +21,7 @@ end
 5.times do
   FactoryBot.create(:user)
 end
+
+5.times do
+  FactoryBot.create(:comment)
+end
