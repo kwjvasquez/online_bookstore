@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2022_05_20_214718) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.text "message"
+    t.text "message", null: false
     t.integer "user_id", null: false
     t.integer "book_id", null: false
     t.boolean "approved", default: false
