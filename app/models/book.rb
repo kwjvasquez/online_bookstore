@@ -5,7 +5,7 @@ class Book < ApplicationRecord
   belongs_to :category
   has_many :comments, dependent: :destroy
 
-  validates :code, presence: true, uniqueness: true
+  validates :code, uniqueness: true
   validates :name, presence: true, length: { maximum: 30 },
                    format: {
                      with: /\A[a-zA-Z0-9 ]*\z/,
