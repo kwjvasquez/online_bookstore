@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :authors, only: %i[ index show ]
   resources :books, only: %i[ index show ]
+  resources :tags, only: %i[ index show ]
 
   devise_scope :user do
     get "sign_in", to: "devise/sessions#new", as: :new_user_session
