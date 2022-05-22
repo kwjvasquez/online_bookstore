@@ -10,13 +10,13 @@ RSpec.describe Comment, type: :model do
   let!(:category) { create(:category) }
   let!(:book) { create(:book, author_id: 1, category_id: 1, active: false) }
 
-  describe "validations" do
-    it { is_expected.to validate_presence_of(:message) }
-    it { is_expected.to validate_uniqueness_of(:book_id).scoped_to(:user_id) }
-  end
-
   describe "associations" do
     it { is_expected.to belong_to(:book) }
     it { is_expected.to belong_to(:user) }
+  end
+
+  describe "validations" do
+    it { is_expected.to validate_presence_of(:message) }
+    it { is_expected.to validate_uniqueness_of(:book_id).scoped_to(:user_id) }
   end
 end
