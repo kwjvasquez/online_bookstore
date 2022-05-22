@@ -1,12 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  has_many :comments, dependent: :destroy
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :email, uniqueness: true, email: true
-  validates :date_of_birth, format: {
-    with: /\A\d{4}\b-\d{1,2}\b-\d{1,2}\z/
-  }
+  has_many :comments, dependent: :destroy
 end
