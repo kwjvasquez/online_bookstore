@@ -8,6 +8,6 @@ class TagsController < ApplicationController
   def show
     @tag = ActsAsTaggableOn::Tag.find(params[:id])
     @books_related = Book.tagged_with(@tag.name).order(:name).page(params[:page])
-    @books_with_this_tag = @books_related.count
+    @books_with_this_tag = Book.tagged_with(@tag.name).count
   end
 end

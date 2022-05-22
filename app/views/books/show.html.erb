@@ -20,6 +20,14 @@
   <dd><%= @book.author.name %></dd>
 </dl>
 
+<h2>Tags related</h2>
+
+<% @book.tag_list.each do |tag| %>
+  <p>
+    <%= tag %>
+  </p>
+<% end %>
+
 <% if @book.comments.count > 0 %>
 
   <h2>Comments:</h2>
@@ -30,4 +38,6 @@
 
 <% end %>
 
-<%= link_to "Back", books_path %>
+<div>
+  <%= link_to "Back", books_path %>
+</div>
