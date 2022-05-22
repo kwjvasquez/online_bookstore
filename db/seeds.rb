@@ -15,7 +15,10 @@ end
 end
 
 10.times do
-  FactoryBot.create(:book)
+  book = FactoryBot.create(:book)
+  word_list = Faker::Lorem.words.join(", ")
+  book.tag_list.add(word_list, parse: true)
+  book.save
 end
 
 5.times do

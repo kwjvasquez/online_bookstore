@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Book < ApplicationRecord
+  acts_as_taggable_on :tags
+
   belongs_to :author
   belongs_to :category
   has_many :comments, dependent: :destroy
