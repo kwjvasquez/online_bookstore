@@ -5,13 +5,17 @@ require "rails_helper"
 RSpec.describe User, type: :model do
   subject { create(:user) }
 
+  describe "associations" do
+    it { is_expected.to have_many(:comments).dependent(:destroy) }
+  end
+
   describe "validations" do
     it { is_expected.to validate_presence_of(:first_name) }
     it { is_expected.to validate_presence_of(:last_name) }
     it { is_expected.to validate_uniqueness_of(:email) }
   end
 
-  describe "date of birth matcher" do
+  describe "#date_of_birth" do
     let(:date_of_birth) { subject.date_of_birth.to_s }
 
     it "has the YYYY-MM-DD format" do
