@@ -1,3 +1,9 @@
 <h1>Tags</h1>
 
+<ul>
+  <%= render partial: "tags/tag", collection: @tags %>
+</ul>
+
+<%= paginate @tags %>
+
 <%= link_to "Home", root_path %>

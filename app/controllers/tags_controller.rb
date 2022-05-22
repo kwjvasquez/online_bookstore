@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
 class TagsController < ApplicationController
-  def index; end
+  def index
+    @tags = ActsAsTaggableOn::Tag.order(:name).page(params[:page])
+  end
 end
