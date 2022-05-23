@@ -32,7 +32,7 @@ RSpec.describe Book, type: :model do
       expect(name).to match(/\A[a-zA-Z0-9 ]*\z/)
     end
   end
-
+  
   describe "#price" do
     let(:price) { subject.price.to_f.to_s }
 
