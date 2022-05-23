@@ -1,4 +1,4 @@
-# frozen_string_literal:
+# frozen_string_literal: true
 
 class RequestBooksController < ApplicationController
   def new
@@ -9,6 +9,12 @@ class RequestBooksController < ApplicationController
 
   def create
     @request_book = RequestBook.new(request_book_params)
+
+    if @request_book.save
+      redirect_to root_path
+    else
+      render :new, status: :unproccessable_entity
+    end
   end
 
   private
