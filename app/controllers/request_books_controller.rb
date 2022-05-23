@@ -13,7 +13,7 @@ class RequestBooksController < ApplicationController
     if @request_book.save
       redirect_to root_path
     else
-      render :new, status: :unproccessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
