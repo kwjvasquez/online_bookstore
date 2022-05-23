@@ -6,6 +6,7 @@ class Book < ApplicationRecord
   belongs_to :author
   belongs_to :category
   has_many :comments, dependent: :destroy
+  has_many :request_books
 
   validates :code, uniqueness: true
   validates :name, presence: true, length: { maximum: 30 },
