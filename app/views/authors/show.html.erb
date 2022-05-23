@@ -1,0 +1,13 @@
+<h1><%= @author.name %></h1>
+
+<ul>
+  <%= render @author_books %>
+</ul>
+
+<%= paginate @author_books %>
+
+<p>
+  Amount of books: <%= @amount_of_books_published %>
+</p>
+
+<%= link_to "Back", authors_path %>

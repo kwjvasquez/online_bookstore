@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Author < ApplicationRecord
+class Category < ApplicationRecord
   has_many :books, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
