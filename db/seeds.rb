@@ -22,3 +22,10 @@ end
 5.times do
   FactoryBot.create(:comment)
 end
+
+5.times do
+  RequestBook.create(
+    user_id: rand(1..5),
+    book_id: rand(1..10)
+  )
+end

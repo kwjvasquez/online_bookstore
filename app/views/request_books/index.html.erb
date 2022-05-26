@@ -1,0 +1,16 @@
+<h1>Requests</h1>
+
+<table>
+  <tr>
+    <th>User email</th>
+    <th>Book name</th>
+  </tr>
+
+
+  <% @request_books.each do |request| %>
+    <tr>
+      <td><%= request.user.email %></td>
+      <td><%= request.book.name %></td>
+    </tr>
+  <% end %>
+</table>
