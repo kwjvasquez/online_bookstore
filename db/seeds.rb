@@ -29,3 +29,6 @@ end
     book_id: rand(1..10)
   )
 end
+
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+AdminUser.create!(email: 'root@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
