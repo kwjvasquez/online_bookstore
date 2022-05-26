@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_26_183801) do
+ActiveRecord::Schema.define(version: 2022_05_26_185658) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -36,6 +36,14 @@ ActiveRecord::Schema.define(version: 2022_05_26_183801) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "admin_users_roles", id: false, force: :cascade do |t|
+    t.integer "admin_user_id"
+    t.integer "role_id"
+    t.index ["admin_user_id", "role_id"], name: "index_admin_users_roles_on_admin_user_id_and_role_id"
+    t.index ["admin_user_id"], name: "index_admin_users_roles_on_admin_user_id"
+    t.index ["role_id"], name: "index_admin_users_roles_on_role_id"
   end
 
   create_table "authors", force: :cascade do |t|
@@ -87,6 +95,17 @@ ActiveRecord::Schema.define(version: 2022_05_26_183801) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["book_id"], name: "index_request_books_on_book_id"
     t.index ["user_id"], name: "index_request_books_on_user_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.string "resource_type"
+    t.integer "resource_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
+    t.index ["name"], name: "index_roles_on_name"
+    t.index ["resource_type", "resource_id"], name: "index_roles_on_resource"
   end
 
   create_table "taggings", force: :cascade do |t|
