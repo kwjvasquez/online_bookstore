@@ -16,4 +16,23 @@ RSpec.describe "Authors", type: :request do
       expect(assigns(:authors)).to match([author])
     end
   end
+
+  describe "GET /show" do
+    let!(:category) { create(:category) }
+    let!(:book) { create(:book, category_id: 1, author_id: 1) }
+
+    before { get author_path(author) }
+
+    it "renders a successful response" do
+      expect(response).to have_http_status(:success)
+    end
+
+    it "has the current author info" do
+      expect(response.body).to match(author.name)
+    end
+
+    it "shows a list with all books by the author" do
+      expect(author.books).to match([book])
+    end
+  end
 end

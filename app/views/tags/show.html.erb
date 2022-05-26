@@ -1,0 +1,15 @@
+<h1><%= @tag.name %></h1>
+
+<p>
+  Amount of books with this tag: <%= @books_with_this_tag %>
+</p>
+
+<h2>Books related</h2>
+
+<ul>
+  <%= render @books_related %>
+</ul>
+
+<%= paginate @books_related %>
+
+<%= link_to "Back", tags_path %>

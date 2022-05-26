@@ -1,10 +1,14 @@
 # frozen_string_literal: true
 
 class Book < ApplicationRecord
+  acts_as_taggable_on :tags
+
   belongs_to :author
   belongs_to :category
+  has_many :comments, dependent: :destroy
+  has_many :request_books
 
-  validates :code, presence: true, uniqueness: true
+  validates :code, uniqueness: true
   validates :name, presence: true, length: { maximum: 30 },
                    format: {
                      with: /\A[a-zA-Z0-9 ]*\z/,

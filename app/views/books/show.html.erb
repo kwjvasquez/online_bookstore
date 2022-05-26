@@ -1,0 +1,43 @@
+<h1><%= @book.name %></h1>
+
+<dl>
+  <dt><strong>Code:</strong></dt>
+  <dd><%= @book.code %></dd>
+
+  <dt><strong>Description:</strong></dt>
+  <dd><%= @book.description %></dd>
+
+  <dt><strong>Price:</strong></dt>
+  <dd><%= "$#{@book.price}" %></dd>
+
+  <dt><strong>Number of pages:</strong></dt>
+  <dd><%= @book.number_of_pages %></dd>
+
+  <dt><strong>Date published:</strong></dt>
+  <dd><%= @book.date_published %></dd>
+
+  <dt><strong>Author:</strong></dt>
+  <dd><%= @book.author.name %></dd>
+</dl>
+
+<h2>Tags related</h2>
+
+<% @book.tag_list.each do |tag| %>
+  <p>
+    <%= tag %>
+  </p>
+<% end %>
+
+<% if @book.comments.count > 0 %>
+
+  <h2>Comments:</h2>
+
+  <ul>
+    <%= render @book.comments %>
+  </ul>
+
+<% end %>
+
+<div>
+  <%= link_to "Back", books_path %>
+</div>

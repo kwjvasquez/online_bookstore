@@ -8,8 +8,13 @@ RSpec.describe Book, type: :model do
   let!(:author) { create(:author) }
   let!(:category) { create(:category) }
 
+  describe "associations" do
+    it { is_expected.to belong_to(:author) }
+    it { is_expected.to belong_to(:category) }
+    it { is_expected.to have_many(:comments).dependent(:destroy) }
+  end
+
   describe "validations" do
-    it { is_expected.to validate_presence_of(:code) }
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:price) }
     it { is_expected.to validate_presence_of(:number_of_pages) }
@@ -20,15 +25,15 @@ RSpec.describe Book, type: :model do
     it { is_expected.to allow_value(subject.name).for(:name) }
   end
 
-  describe "name matcher" do
+  describe "#name" do
     let(:name) { subject.name }
 
     it "does not accept special characters" do
       expect(name).to match(/\A[a-zA-Z0-9 ]*\z/)
     end
   end
-
-  describe "price matcher" do
+  
+  describe "#price" do
     let(:price) { subject.price.to_f.to_s }
 
     it "must have two decimal numbers" do

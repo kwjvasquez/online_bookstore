@@ -1,0 +1,17 @@
+<h1>Request Book</h1>
+
+<%= form_with(model: @request_book) do |form| %>
+  <div>
+    <%= form.label :user %><br/>
+    <%= form.select :user_id, @users.collect { |u| [ u.email, u.id ] } %>
+  </div>
+
+  <div>
+    <%= form.label :book %><br/>
+    <%= form.select :book_id, @books.collect { |b| [ b.name, b.id ] } %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
