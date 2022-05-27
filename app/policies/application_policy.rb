@@ -9,15 +9,15 @@ class ApplicationPolicy
   end
 
   def index?
-    false
+    true
   end
 
   def show?
-    false
+    true
   end
 
   def create?
-    false
+    super_admin?
   end
 
   def new?
@@ -25,7 +25,7 @@ class ApplicationPolicy
   end
 
   def update?
-    false
+    super_admin?
   end
 
   def edit?
@@ -33,7 +33,7 @@ class ApplicationPolicy
   end
 
   def destroy?
-    false
+    super_admin?
   end
 
   class Scope
@@ -43,11 +43,21 @@ class ApplicationPolicy
     end
 
     def resolve
-      raise NotImplementedError, "You must define #resolve in #{self.class}"
+      scope
     end
 
     private
 
     attr_reader :user, :scope
+  end
+
+  protected
+
+  def super_admin?
+    user.has_role?("Super Admin")
+  end
+
+  def content_manager?
+    user.has_role?("Content Manager")
   end
 end

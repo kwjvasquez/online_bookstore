@@ -1,11 +1,23 @@
 # frozen_string_literal: true
 
 class AuthorPolicy < ApplicationPolicy
-  include ContentManagerAccess
+  def create?
+    super_admin? || content_manager?
+  end
 
-  class Scope < Scope
-    def resolve
-      scope.all
-    end
+  def new?
+    create?
+  end
+
+  def update?
+    super_admin? || content_manager?
+  end
+
+  def edit?
+    update?
+  end
+
+  def destroy?
+    super_admin? || content_manager?
   end
 end

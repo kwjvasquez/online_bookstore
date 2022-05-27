@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 class AdminUserPolicy < ApplicationPolicy
-  include SuperAdminAccess
+  def index?
+    super_admin?
+  end
 
-  class Scope < Scope
-    def resolve
-      scope.all
-    end
+  def show?
+    super_admin?
   end
 end
