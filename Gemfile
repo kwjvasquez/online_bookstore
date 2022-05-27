@@ -33,10 +33,12 @@ group :test do
   gem "shoulda-matchers", "~> 5.0"
 end
 
+gem "activeadmin", "~> 2.13"
 gem "acts-as-taggable-on", "~> 9.0"
 gem "devise", "~> 4.8"
 gem "email_validator"
 gem "factory_bot_rails"
 gem "faker", "~> 2.21"
 gem "kaminari"
+gem "rolify", "~> 6.0"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]

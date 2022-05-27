@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :tags, only: %i[ index show ]
   resources :request_books, only: %i[ index ]
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   devise_scope :user do
     get "sign_in", to: "devise/sessions#new", as: :new_user_session
     post "sign_in", to: "devise/session#create", as: :user_session
