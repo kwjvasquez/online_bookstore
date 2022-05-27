@@ -8,6 +8,6 @@ class AdminUserPolicy < ApplicationPolicy
   end
 
   def index?
-    true
+    @user.has_role?("Super Admin")
   end
 end
