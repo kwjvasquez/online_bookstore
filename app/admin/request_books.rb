@@ -13,13 +13,13 @@ ActiveAdmin.register RequestBook do
     actions
   end
 
-  filter :user, as: :select, collection: User.pluck(:email, :id)
+  filter :user, as: :select, collection: proc { User.pluck(:email, :id) }
   filter :book
-  filter :state, as: :select, collection: RequestBook.states
+  filter :state, as: :select, collection: proc { RequestBook.states }
 
   form do |f|
     f.inputs do
-      f.input :user, as: :select, collection: User.pluck(:email, :id)
+      f.input :user, as: :select, collection: proc { User.pluck(:email, :id) }
       f.input :book
     end
     f.actions

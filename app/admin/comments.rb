@@ -13,12 +13,12 @@ ActiveAdmin.register Comment do
   end
 
   # show email instead of the object reference
-  filter :user, as: :select, collection: User.pluck(:email, :id)
+  filter :user, as: :select, collection: proc { User.pluck(:email, :id) }
   filter :book
 
   form do |f|
     f.inputs do
-      f.input :user, as: :select, collection: User.pluck(:email, :id)
+      f.input :user, as: :select, collection: proc { User.pluck(:email, :id) }
       f.input :book
       f.input :message
     end
