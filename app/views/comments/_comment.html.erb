@@ -1,3 +1,5 @@
-<li>
-  <%= comment.message %> - by: <i><%= comment.user.email %></i>
-</li>
+<% if comment.approved? %>
+  <li>
+    <%= comment.message %> - by: <i><%= comment.user.email %></i>
+  </li>
+<% end %>
