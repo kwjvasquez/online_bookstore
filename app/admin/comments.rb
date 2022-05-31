@@ -26,15 +26,15 @@ ActiveAdmin.register Comment do
   end
 
   action_item :approved, only: :show do
-    unless comment.approved
+    unless comment.approved?
       link_to "Approve", approved_admin_comment_path(comment),
               method: :patch
     end
   end
 
-  action_item :disapproved, only: :show do
-    if comment.approved
-      link_to "Disapprove", disapproved_admin_comment_path(comment),
+  action_item :unapproved, only: :show do
+    if comment.approved?
+      link_to "Unapprove", unapproved_admin_comment_path(comment),
               method: :patch
     end
   end
@@ -45,7 +45,7 @@ ActiveAdmin.register Comment do
     redirect_to admin_comment_path(comment)
   end
 
-  member_action :disapproved, method: :patch do
+  member_action :unapproved, method: :patch do
     comment = Comment.find(params[:id])
     comment.update(approved: false)
     redirect_to admin_comment_path(comment)
