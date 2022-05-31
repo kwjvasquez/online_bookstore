@@ -33,5 +33,5 @@ end
 admin_user = AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 another_user = AdminUser.create!(email: 'another@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
-admin_user.add_role("Super Admin")
-another_user.add_role("Content Manager")
+admin_user.add_role("super_admin")
+another_user.add_role("content_manager")
