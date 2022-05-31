@@ -40,5 +40,6 @@ gem "email_validator"
 gem "factory_bot_rails"
 gem "faker", "~> 2.21"
 gem "kaminari"
+gem "pundit", "~> 2.2"
 gem "rolify", "~> 6.0"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
