@@ -24,4 +24,43 @@ ActiveAdmin.register RequestBook do
     end
     f.actions
   end
+
+  action_item :review, only: :show do
+    if request_book.pending?
+      link_to "Review", review_admin_request_book_path(request_book),
+              method: :patch
+    end
+  end
+
+  action_item :ready, only: :show do
+    if request_book.processing?
+      link_to "Ready", ready_admin_request_book_path(request_book),
+              method: :patch
+    end
+  end
+
+  action_item :cancel, only: :show do
+    if request_book.pending? || request_book.processing?
+      link_to "Cancel", cancel_admin_request_book_path(request_book),
+              method: :patch
+    end
+  end
+
+  member_action :review, method: :patch do
+    request_book = RequestBook.find(params[:id])
+    request_book.review!
+    redirect_to admin_request_book_path(request_book)
+  end
+
+  member_action :ready, method: :patch do
+    request_book = RequestBook.find(params[:id])
+    request_book.ready!
+    redirect_to admin_request_book_path(request_book)
+  end
+
+  member_action :cancel, method: :patch do
+    request_book = RequestBook.find(params[:id])
+    request_book.cancel!
+    redirect_to admin_request_book_path(request_book)
+  end
 end
