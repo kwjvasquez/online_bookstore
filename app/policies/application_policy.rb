@@ -54,10 +54,10 @@ class ApplicationPolicy
   protected
 
   def super_admin?
-    user.has_role?("Super Admin")
+    user.has_role?("super_admin")
   end
 
   def content_manager?
-    user.has_role?("Content Manager")
+    user.has_role?("content_manager")
   end
 end
