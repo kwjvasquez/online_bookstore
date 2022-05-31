@@ -10,9 +10,22 @@ ActiveAdmin.register Comment do
     end
   end
 
+  action_item :disapproved, only: :show do
+    if comment.approved
+      link_to "Disapprove", disapproved_admin_comment_path(comment),
+              method: :patch
+    end
+  end
+
   member_action :approved, method: :patch do
     comment = Comment.find(params[:id])
     comment.update(approved: true)
+    redirect_to admin_comment_path(comment)
+  end
+
+  member_action :disapproved, method: :patch do
+    comment = Comment.find(params[:id])
+    comment.update(approved: false)
     redirect_to admin_comment_path(comment)
   end
 end
