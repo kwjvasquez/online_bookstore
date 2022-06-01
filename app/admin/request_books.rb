@@ -9,8 +9,17 @@ ActiveAdmin.register RequestBook do
     column :book
     column :user
     column :created_at
-    column :state
+    tag_column :state
     actions
+  end
+
+  show do
+    attributes_table do
+      row :book
+      row :user
+      row :created_at
+      state_row :state
+    end
   end
 
   filter :user, as: :select, collection: proc { User.pluck(:email, :id) }
@@ -19,7 +28,7 @@ ActiveAdmin.register RequestBook do
 
   form do |f|
     f.inputs do
-      f.input :user, as: :select, collection: proc { User.pluck(:email, :id) }
+      f.input :user, as: :select, collection: User.pluck(:email, :id)
       f.input :book
     end
     f.actions
