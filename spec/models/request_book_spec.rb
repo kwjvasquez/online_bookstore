@@ -37,10 +37,7 @@ RSpec.describe RequestBook, type: :model do
     end
 
     context "with the processing state" do
-      before do
-        subject.state = :processing
-        subject.save
-      end
+      before { subject.processing! }
 
       it { is_expected.to have_state(:processing) }
       it { is_expected.to allow_event(:ready) }
@@ -52,10 +49,7 @@ RSpec.describe RequestBook, type: :model do
     end
 
     context "with the completed state" do
-      before do
-        subject.state = :completed
-        subject.save
-      end
+      before { subject.completed! }
 
       it { is_expected.to have_state(:completed) }
       it { is_expected.not_to allow_event(:review) }
@@ -67,10 +61,7 @@ RSpec.describe RequestBook, type: :model do
     end
 
     context "with the canceled state" do
-      before do
-        subject.state = :canceled
-        subject.save
-      end
+      before { subject.canceled! }
 
       it { is_expected.to have_state(:canceled) }
       it { is_expected.not_to allow_event(:review) }
