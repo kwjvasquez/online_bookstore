@@ -33,7 +33,9 @@ group :test do
   gem "shoulda-matchers", "~> 5.0"
 end
 
+gem "aasm", "~> 5.2"
 gem "activeadmin", "~> 2.13"
+gem "activeadmin_addons"
 gem "acts-as-taggable-on", "~> 9.0"
 gem "devise", "~> 4.8"
 gem "email_validator"

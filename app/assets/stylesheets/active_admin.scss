@@ -1,3 +1,4 @@
+@import 'activeadmin_addons/all';
 // Sass variable overrides must be declared before loading up Active Admin's styles.
 //
 // To view the variables that Active Admin provides, take a look at
@@ -11,7 +12,14 @@
 @import "active_admin/mixins";
 @import "active_admin/base";
 
-// Overriding any non-variable Sass must be done after the fact.
-// For example, to change the default status-tag color:
-//
-//   .status_tag { background: #6090DB; }
+$pending-color: #FF9900;
+$processing-color: #0e86d4;
+$completed-color: #08A510;
+$canceled-color: #FF0000;
+
+.status_tag {
+  &.pending { background: $pending-color; }
+  &.processing { background: $processing-color; }
+  &.completed { background: $completed-color; }
+  &.canceled { background: $canceled-color; }
+}
