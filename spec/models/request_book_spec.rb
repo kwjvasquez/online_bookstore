@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe RequestBook, type: :model do
-  subject { described_class.create(book_id: 1, user_id: 1) }
+  subject { FactoryBot.create(:request_book, book_id: 1, user_id: 1) }
 
   let!(:user) { create(:user) }
   let!(:author) { create(:author) }
@@ -16,11 +16,6 @@ RSpec.describe RequestBook, type: :model do
   end
 
   describe "#state" do
-    it do
-      is_expected.to define_enum_for(:state)
-        .with_values(%i[pending processing completed canceled])
-    end
-
     it { is_expected.to transition_from(:pending).to(:processing).on_event(:review) }
     it { is_expected.to transition_from(:processing).to(:completed).on_event(:ready) }
     it { is_expected.to transition_from(:pending).to(:canceled).on_event(:cancel) }
@@ -37,7 +32,7 @@ RSpec.describe RequestBook, type: :model do
     end
 
     context "with the processing state" do
-      before { subject.processing! }
+      before { subject.update(state: "processing") }
 
       it { is_expected.to have_state(:processing) }
       it { is_expected.to allow_event(:ready) }
@@ -49,7 +44,7 @@ RSpec.describe RequestBook, type: :model do
     end
 
     context "with the completed state" do
-      before { subject.completed! }
+      before { subject.update(state: "completed") }
 
       it { is_expected.to have_state(:completed) }
       it { is_expected.not_to allow_event(:review) }
@@ -61,7 +56,7 @@ RSpec.describe RequestBook, type: :model do
     end
 
     context "with the canceled state" do
-      before { subject.canceled! }
+      before { subject.update(state: "canceled") }
 
       it { is_expected.to have_state(:canceled) }
       it { is_expected.not_to allow_event(:review) }
@@ -73,8 +68,14 @@ RSpec.describe RequestBook, type: :model do
     end
 
     context "with the invalid state" do
-      it "raises an ArgumentError" do
-        expect { subject.state = :invalid }.to raise_error(ArgumentError)
+      let!(:invalid_state) { subject.update(state: "invalid") }
+
+      it "returns false" do
+        expect(invalid_state).to be_falsey
+      end
+
+      it "does not update the state" do
+        expect(RequestBook.where(state: "invalid")).to be_empty
       end
     end
   end

@@ -6,14 +6,7 @@ class RequestBook < ApplicationRecord
   belongs_to :book
   belongs_to :user
 
-  enum state: {
-    pending: 0,
-    processing: 1,
-    completed: 2,
-    canceled: 3
-  }
-
-  aasm whiny_transitions: false, column: :state, enum: true do
+  aasm column: :state do
     state :pending, initial: true
     state :processing, :completed
     state :canceled

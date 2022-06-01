@@ -24,10 +24,7 @@ end
 end
 
 5.times do
-  RequestBook.create(
-    user_id: rand(1..5),
-    book_id: rand(1..10)
-  )
+  FactoryBot.create(:request_book)
 end
 
 admin_user = AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

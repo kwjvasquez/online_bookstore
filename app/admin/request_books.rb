@@ -24,7 +24,6 @@ ActiveAdmin.register RequestBook do
 
   filter :user, as: :select, collection: proc { User.pluck(:email, :id) }
   filter :book
-  filter :state, as: :select, collection: proc { RequestBook.states }
 
   form do |f|
     f.inputs do
