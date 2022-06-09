@@ -8,4 +8,9 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
   end
+
+  def import_from_csv
+    books_data = SmarterCSV.process(Rails.root / "db/books.csv")
+    p books_data
+  end
 end
