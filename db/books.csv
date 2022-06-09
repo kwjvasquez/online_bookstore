@@ -1,0 +1,4 @@
+code,name,description,price,number_of_pages,date_published,author_id,category_id,tags
+1f2a6cec-740d-4c0e-938f-df7ca088de4a,BookA,Voluptates error et sit.,8799.46,308,2022-01-18,5,4,tag 1
+ff40638c-d463-47f9-b6a8-d8010a79cde6,BookB,Placeat quibusdam voluptas ex.,7604.62,755,2022-03-21,4,2,"tag 2,tag 3"
+a7f7a1c2-31bc-4e33-b3f2-b000b7225694,BookC,Doloribus voluptatibus voluptatum provident.,3758.76,889,2022-01-01,5,1,tag 4
