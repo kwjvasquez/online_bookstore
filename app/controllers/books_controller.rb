@@ -10,8 +10,7 @@ class BooksController < ApplicationController
   end
 
   def import_from_csv
-    books_data = SmarterCSV.process(Rails.root / "db/books.csv")
-    ImportBooksJob.perform_now(books_data)
+    ImportBooksJob.perform_later
     redirect_to books_path
   end
 end
