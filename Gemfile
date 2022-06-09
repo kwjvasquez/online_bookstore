@@ -43,6 +43,8 @@ gem "factory_bot_rails"
 gem "faker", "~> 2.21"
 gem "kaminari"
 gem "pundit", "~> 2.2"
+gem "redis", "~> 4.6"
 gem "rolify", "~> 6.0"
+gem "sidekiq", "~> 6.5"
 gem "smarter_csv", "~> 1.6"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]

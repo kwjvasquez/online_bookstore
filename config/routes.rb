@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root "welcome#index"
 
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+
   resources :authors, only: %i[ index show ]
   resources :books, only: %i[ index show ]
   post "/books/import_from_csv"
