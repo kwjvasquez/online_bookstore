@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 
   resources :authors, only: %i[ index show ]
   resources :books, only: %i[ index show ]
-  post "/books/import_from_csv"
   resources :tags, only: %i[ index show ]
   resources :request_books, only: %i[ index ]
 

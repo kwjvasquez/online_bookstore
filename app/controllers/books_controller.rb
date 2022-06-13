@@ -8,9 +8,4 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
   end
-
-  def import_from_csv
-    ImportBooksJob.perform_later
-    redirect_to books_path
-  end
 end
