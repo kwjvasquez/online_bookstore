@@ -1,0 +1,15 @@
+<% if @versions.count > 1 %>
+  <table>
+    <thead>
+      <th>Action</th>
+      <th>User</th>
+      <th>Time</th>
+    </thead>
+
+    <tbody>
+      <%= render partial: "admin/books/version", collection: @versions %>
+    <tbody>
+  </table>
+<% else %>
+    <p><strong>Book without changes</strong></p>
+<% end %>

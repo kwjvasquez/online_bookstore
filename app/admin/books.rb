@@ -6,6 +6,14 @@ ActiveAdmin.register Book do
 
   active_admin_import
 
+  action_item :versions, only: :show do
+    link_to "Versions", versions_admin_book_path(resource)
+  end
+
+  member_action :versions, method: :get do
+    @versions = resource.versions
+  end
+
   controller do
     def do_import
       books_data = SmarterCSV.process(params[:active_admin_import_model][:file])
