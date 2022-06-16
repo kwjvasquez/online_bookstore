@@ -17,7 +17,7 @@ class Book < ApplicationRecord
                    }
   validates :price, presence: true,
                     numericality: {
-                      greater_than_or_equal_to: 0, less_than: 10_000
+                      greater_than_or_equal_to: 0, less_than_or_equal_to: 10_000
                     },
                     format: {
                       with: /\A\d{1,4}\.\d{2}\z/,
