@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Book < ApplicationRecord
+  has_paper_trail
   acts_as_taggable_on :tags
 
   belongs_to :author
