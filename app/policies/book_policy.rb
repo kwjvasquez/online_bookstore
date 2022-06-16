@@ -20,4 +20,12 @@ class BookPolicy < ApplicationPolicy
   def destroy?
     super_admin? || content_manager?
   end
+
+  def import?
+    super_admin?
+  end
+
+  def do_import?
+    super_admin?
+  end
 end
