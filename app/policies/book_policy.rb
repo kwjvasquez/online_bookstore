@@ -28,4 +28,8 @@ class BookPolicy < ApplicationPolicy
   def do_import?
     super_admin?
   end
+
+  def versions?
+    super_admin?
+  end
 end

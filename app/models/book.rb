@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Book < ApplicationRecord
+  has_paper_trail
   acts_as_taggable_on :tags
 
   belongs_to :author
@@ -16,7 +17,7 @@ class Book < ApplicationRecord
                    }
   validates :price, presence: true,
                     numericality: {
-                      greater_than_or_equal_to: 0, less_than: 10_000
+                      greater_than_or_equal_to: 0, less_than_or_equal_to: 10_000
                     },
                     format: {
                       with: /\A\d{1,4}\.\d{2}\z/,
