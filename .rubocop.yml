@@ -58,3 +58,5 @@ Style/StringLiterals:
 # if-elsif constructions can be replaced with case-when
 Style/CaseLikeIf:
   Enabled: true
+Metrics/AbcSize:
+  Enabled: false
