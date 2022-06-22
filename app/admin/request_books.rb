@@ -63,7 +63,18 @@ ActiveAdmin.register RequestBook do
   member_action :ready, method: :patch do
     resource.ready!
 
-    redirect_to resource_path(resource)
+    SendgridMailer.send(
+      to: resource.user.email,
+      subsitutions: {
+        firstName: resource.user.first_name,
+        lastName: resource.user.last_name,
+        bookName: resource.book.name,
+        state: resource.state
+      },
+      template_id: ENV.fetch("TEMPLATE_ID", nil)
+    )
+
+    redirect_to resource_path(resource), notice: "Email notification sent!"
   end
 
   member_action :cancel, method: :patch do
