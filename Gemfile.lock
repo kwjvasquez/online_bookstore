@@ -47,6 +47,11 @@ GEM
       rchardet (>= 1.6)
       rubyzip (>= 1.2)
     active_material (1.5.2)
+    active_storage_validations (0.9.8)
+      activejob (>= 5.2.0)
+      activemodel (>= 5.2.0)
+      activestorage (>= 5.2.0)
+      activesupport (>= 5.2.0)
     activeadmin (2.13.1)
       arbre (~> 1.2, >= 1.2.1)
       formtastic (>= 3.1, < 5.0)
@@ -386,6 +391,7 @@ PLATFORMS
 DEPENDENCIES
   aasm (~> 5.2)
   active_admin_import (~> 5.0)
+  active_storage_validations (~> 0.9.8)
   activeadmin (~> 2.13)
   activeadmin_addons
   acts-as-taggable-on (~> 9.0)
