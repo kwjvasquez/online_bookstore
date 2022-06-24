@@ -9,6 +9,9 @@ class User < ApplicationRecord
   has_many :request_books
   has_one_attached :avatar
 
+  validates :avatar, content_type: ["image/ico", "image/png"],
+                     size: { less_than: 100.kilobytes, message: "Is too large" }
+
   def self.from_omniauth(access_token)
     data = access_token.info
     user = User.where(email: data["email"]).first
