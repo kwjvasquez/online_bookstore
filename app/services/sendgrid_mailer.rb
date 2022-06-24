@@ -14,7 +14,7 @@ class SendgridMailer
         }
       ],
       from: {
-        email: "wilmanvasdez@gmail.com"
+        email: ENV.fetch("SENDER_EMAIL", nil)
       },
       template_id: template_id
     }
