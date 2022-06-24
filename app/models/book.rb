@@ -8,6 +8,7 @@ class Book < ApplicationRecord
   belongs_to :category
   has_many :comments, dependent: :destroy
   has_many :request_books
+  has_one_attached :cover
 
   validates :code, uniqueness: true
   validates :name, presence: true, length: { maximum: 30 },
