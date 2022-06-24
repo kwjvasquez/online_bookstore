@@ -51,6 +51,7 @@ gem "paper_trail", "~> 12.3"
 gem "pundit", "~> 2.2"
 gem "redis", "~> 4.6"
 gem "rolify", "~> 6.0"
+gem "sendgrid-ruby", "~> 6.6"
 gem "sidekiq", "~> 6.5"
 gem "smarter_csv", "~> 1.6"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
