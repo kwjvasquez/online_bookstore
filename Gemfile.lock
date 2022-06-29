@@ -202,11 +202,15 @@ GEM
     method_source (1.0.0)
     mini_magick (4.11.0)
     mini_mime (1.1.2)
+    mini_portile2 (2.8.0)
     minitest (5.15.0)
     msgpack (1.5.1)
     multi_json (1.15.0)
     multi_xml (0.6.0)
     nio4r (2.5.8)
+    nokogiri (1.13.6)
+      mini_portile2 (~> 2.8.0)
+      racc (~> 1.4)
     nokogiri (1.13.6-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.13.6-x86_64-linux)
@@ -246,6 +250,7 @@ GEM
     parallel (1.22.1)
     parser (3.1.2.0)
       ast (~> 2.4.1)
+    pg (1.4.1)
     puma (5.6.4)
       nio4r (~> 2.0)
     pundit (2.2.0)
@@ -372,7 +377,6 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     thor (1.2.1)
     tilt (2.0.10)
     turbolinks (5.2.1)
@@ -402,6 +406,7 @@ GEM
     zeitwerk (2.5.4)
 
 PLATFORMS
+  ruby
   x86_64-darwin-20
   x86_64-linux
 
@@ -429,6 +434,7 @@ DEPENDENCIES
   omniauth-rails_csrf_protection
   overcommit (~> 0.58.0)
   paper_trail (~> 12.3)
+  pg (~> 1.4)
   puma (~> 5.0)
   pundit (~> 2.2)
   rack-mini-profiler (~> 2.0)
@@ -444,7 +450,6 @@ DEPENDENCIES
   sidekiq (~> 6.5)
   smarter_csv (~> 1.6)
   spring
-  sqlite3 (~> 1.4)
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)
