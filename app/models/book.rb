@@ -8,6 +8,7 @@ class Book < ApplicationRecord
   belongs_to :category
   has_many :comments, dependent: :destroy
   has_many :request_books
+  has_one_attached :cover
 
   validates :code, uniqueness: true
   validates :name, presence: true, length: { maximum: 30 },
@@ -25,6 +26,8 @@ class Book < ApplicationRecord
                     }
   validates :number_of_pages, presence: true, numericality: { only_integer: true }
   validates :date_published, presence: true
+  validates :cover, content_type: ["image/jpg", "image/jpeg", "image/png"],
+                    size: { less_than: 1.megabytes, message: "Is too large" }
 
   before_validation :set_code
 
