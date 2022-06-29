@@ -27,8 +27,8 @@ end
   FactoryBot.create(:request_book)
 end
 
-admin_user = AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
-another_user = AdminUser.create!(email: 'another@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+admin_user = AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+another_user = AdminUser.create!(email: 'another@example.com', password: 'password', password_confirmation: 'password')
 
 admin_user.add_role("super_admin")
 another_user.add_role("content_manager")
